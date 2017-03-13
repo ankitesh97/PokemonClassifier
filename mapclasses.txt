@@ -1,0 +1,1 @@
+{"Ghost": 2, "Steel": 3, "Electric": 5, "Normal": 7, "Fire": 8, "Psychic": 9, "Water": 12, "Fighting": 13, "Ice": 6, "Dragon": 11, "Dark": 4, "Poison": 10, "Rock": 14, "Fairy": 15, "Grass": 16, "Bug": 17, "Ground": 18}
