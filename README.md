@@ -19,7 +19,7 @@ To view the predictions run the main.py just change the filename of your data
 
 ## Results
 
--Firt the validation was performed by the letting model predict one class and to cross check it with the  
+-First the validation was performed by the letting model predict one class and to cross check it with the  
 correctly labeled set it gave an accuracy of around 11.02%  
 - Then the validation was performed to let the model predict 5 classes with the highest probability  
 this gave and accuracy of 39.4%  
@@ -34,8 +34,8 @@ To summarize the Results
 | 6                  	| 42.61        	|  
 
 ## Conclusion
-Finally, the Conclusion that I made from the results  
+Finally, the Conclusion that I made from the results    
 1). It is hard for neural network to predict the correct results since, the number of data points to train  
-the model is very less as compared to features and the classes
-2). There seems no relation between the stats and the pokemon's class
-3). May the by changing the same problem to the image domain(classifying using image) may provide better results.
+the model is very less as compared to features and the classes  
+2). There seems no relation between the stats and the pokemon's class  
+3). May the by changing the same problem to the image domain(classifying using image) may provide better   results.
