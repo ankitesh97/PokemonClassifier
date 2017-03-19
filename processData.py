@@ -4,7 +4,7 @@ import pandas as pd
 import scipy.io as sio
 import json
 
-# classes length 17 i.e 2-19
+# classes length 17 i.e 2-18
 # ['Ghost', 'Steel','Dark','Electric','Ice','Normal','Fire','Psychic','Poison','Dragon','Water','Fighting', 'Rock',
 #  'Fairy','Grass','Bug','Ground']
 mapClassesToInt = {}
@@ -46,15 +46,17 @@ def _to_model_format(train,test):
     y_testdf = test['Type 1']
     train.drop('Type 1',axis=1,inplace=True)
     test.drop('Type 1',axis=1,inplace=True)
+    train = (train-train.mean())/(train.max()-train.min())
+    test = (test-test.mean())/(test.max()-test.min())
     X_train = np.array(train)
     X_test = np.array(test)
-    y_train = np.array(y_testdf)
+    y_train = np.array(y_traindf)
     y_test = np.array(y_testdf)
     #save it in a file
-    final_train = {"desc":['HP','Attack','Defence','Sp.Atk','Sp.Def','Speed']}
+    final_train = {"desc":['Total','Attack','Defence','Sp.Atk','Sp.Def']}
     final_train['X'] = X_train
     final_train['y'] = np.array(map(_map_to_class,y_train))[np.newaxis].T
-    final_test = {"desc":['HP','Attack','Defence','Sp.Atk','Sp.Def','Speed']}
+    final_test = {"desc":['Total','Attack','Defence','Sp.Atk','Sp.Def']}
     final_test['X'] = X_test
     final_test['y'] =np.array(map(_map_to_class,y_test))[np.newaxis].T
     sio.savemat('train.mat',final_train)
@@ -66,7 +68,7 @@ def preprocess():
     #load data
     data_all = pd.read_csv('Pokemon.csv')
     #drop name,type2, generation and is_legendary
-    data = data_all.drop(data_all.columns[[1,3,4,11,12]],axis=1)
+    data = data_all.drop(data_all.columns[[1,3,5,10,11,12]],axis=1)
     #now to remove duplicate entries i.e entries with same id
     data = data.drop_duplicates(data.columns[[0]])
     #set index as the  Pokemon id
